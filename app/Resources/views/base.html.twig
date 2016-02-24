@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <meta charset="UTF-8">
+        <title>{% block title %}Test Application{% endblock %}</title>
+        <link href="{{ asset('css/blog.css') }}" rel="stylesheet" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <img src="{{ asset('images/logo.png', version='3.0') }}" alt="Symfony!" />
+        <img src="{{ absolute_url(asset('images/logo.png')) }}" alt="Symfony!" />
+        <div id="sidebar">
+            {% block sidebar %}
+                <ul>
+                    <li><a href="{{ path('blog') }}">Blog</a></li>
+                    <li><a href="{{ path('welcome') }}">Welcome page</a></li>
+                </ul>
+            {% endblock %}
+        </div>
+
+        <div id="content">
+            {% block body %}{% endblock %}
+        </div>
     </body>
 </html>
