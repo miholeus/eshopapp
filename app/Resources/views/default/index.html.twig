@@ -3,13 +3,13 @@
 {% block body %}
     <div id="wrapper">
         <div class="items">
-            {% for product in products %}
+            {% for book in books %}
                 <div class="list-group-item">
                     <div class="list-group-item-heading">
-                        <a href="{{ url('product_show', {'id':product.id}) }}">{{ product.name }}</a>
+                        <a href="{{ url('book_show', {'id':book.id}) }}">{{ book.name }}</a>
                     </div>
                     <div class="list-group-item-info">
-                        {{ product.price }}
+                        {{ book.price }}
                     </div>
                 </div>
             {% endfor %}

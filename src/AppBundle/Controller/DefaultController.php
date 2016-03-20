@@ -2,7 +2,7 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Product;
+use AppBundle\Entity\Book;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,11 +16,11 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $products = $em->getRepository('AppBundle:Product')
+        $books = $em->getRepository('AppBundle:Book')
             ->findAllOrderedByName();
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', array(
-            'products' => $products
+            'books' => $books
         ));
     }
 
@@ -30,17 +30,17 @@ class DefaultController extends Controller
      */
     public function createAction()
     {
-        $product = new Product();
-        $product->setName('A Foo Bar');
-        $product->setPrice('19.99');
-        $product->setDescription("Some test description");
+        $book = new Book();
+        $book->setName('A Foo Bar');
+        $book->setPrice('19.99');
+        $book->setDescription("Some test description");
 
         $em = $this->getDoctrine()->getManager();
 
-        $em->persist($product);
+        $em->persist($book);
         $em->flush();
 
-        return new Response("Created Product by id: " . $product->getId());
+        return new Response("Created Product by id: " . $book->getId());
     }
 
     /**
@@ -49,13 +49,13 @@ class DefaultController extends Controller
      */
     public function showAction($id)
     {
-        $product = $this->getDoctrine()->getRepository('AppBundle:Product')
+        $book = $this->getDoctrine()->getRepository('AppBundle:Book')
             ->find($id);
 
-        if (!$product) {
-            throw $this->createNotFoundException('No product found for id ' . $id);
+        if (!$book) {
+            throw $this->createNotFoundException('No book found for id ' . $id);
         }
 
-        return $this->render(':product:show.html.twig', ['product' => $product]);
+        return $this->render(':book:show.html.twig', ['book' => $book]);
     }
 }

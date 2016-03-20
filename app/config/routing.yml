@@ -1,24 +1,8 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
-blog:
-    path:      /blog/{page}
-    defaults:  { _controller: AppBundle:Blog:index, page: 1 }
-    requirements:
-        page: \d+
-welcome:
-    path: /blog/welcome
-    defaults: {_controller: AppBundle:Blog:welcome}
-    condition: context.getMethod() in ['GET'] and request.headers.get('User-Agent') matches '/applewebkit/i'
-blog_api:
-    path: /blog/api
-    defaults: {_controller: AppBundle:Blog:api}
-    methods: [GET, HEAD]
-blog_show:
-    path: /blog/{slug}
-    defaults: {_controller: AppBundle:Blog:show}
-product_show:
-    path: /product/{id}
+book_show:
+    path: /book/{id}
     defaults: {_controller: AppBundle:Default:show}
     requirements:
         id: \d+

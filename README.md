@@ -1,4 +1,4 @@
 Shop application
 ==========
 
-A Symfony project.
+A Symfony project. Bookshelf example application.

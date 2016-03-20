@@ -9,10 +9,10 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="AppBundle\Repository\Product")
- * @ORM\Table(name="product")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\Book")
+ * @ORM\Table(name="book")
  */
-class Product
+class Book
 {
     /**
      * @ORM\Column(type="integer")
@@ -50,7 +50,7 @@ class Product
      * Set name
      *
      * @param string $name
-     * @return Product
+     * @return Book
      */
     public function setName($name)
     {
@@ -73,7 +73,7 @@ class Product
      * Set price
      *
      * @param string $price
-     * @return Product
+     * @return Book
      */
     public function setPrice($price)
     {
@@ -96,7 +96,7 @@ class Product
      * Set description
      *
      * @param string $description
-     * @return Product
+     * @return Book
      */
     public function setDescription($description)
     {
