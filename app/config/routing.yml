@@ -17,3 +17,8 @@ blog_api:
 blog_show:
     path: /blog/{slug}
     defaults: {_controller: AppBundle:Blog:show}
+product_show:
+    path: /product/{id}
+    defaults: {_controller: AppBundle:Default:show}
+    requirements:
+        id: \d+

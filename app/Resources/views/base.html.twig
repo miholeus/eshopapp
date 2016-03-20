@@ -2,23 +2,48 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Test Application{% endblock %}</title>
-        <link href="{{ asset('css/blog.css') }}" rel="stylesheet" />
+        <title>{% block title %}Blog Application{% endblock %}</title>
+        <link href="{{ asset('bundles/app/bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet" />
+        {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        <img src="{{ asset('images/logo.png', version='3.0') }}" alt="Symfony!" />
-        <img src="{{ absolute_url(asset('images/logo.png')) }}" alt="Symfony!" />
-        <div id="sidebar">
-            {% block sidebar %}
-                <ul>
-                    <li><a href="{{ path('blog') }}">Blog</a></li>
-                    <li><a href="{{ path('welcome') }}">Welcome page</a></li>
-                </ul>
-            {% endblock %}
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ url('homepage') }}">My Blog</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    {% block sidebar %}
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/">Home</a></li>
+                        <li><a href="{{ path('blog') }}">Blog</a></li>
+                        <li><a href="{{ path('welcome') }}">Welcome page</a></li>
+                    </ul>
+                    {% endblock %}
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+        <div class="container">
+            {% block body %}{% endblock %}
+
+            <hr>
+
+            <footer>
+                <p>&copy; 2015 Company, Inc.</p>
+            </footer>
         </div>
 
-        <div id="content">
-            {% block body %}{% endblock %}
-        </div>
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="{{ asset('bundles/app/bower_components/jquery/dist/jquery.min.js') }}"></script>
+        <script src="{{ asset('bundles/app/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        {% block javascripts %}{% endblock %}
     </body>
 </html>

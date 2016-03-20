@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="row">
+        <div class="list-group-item-heading">
+            {{ product.name }}
+        </div>
+        <div class="list-group-item-text">
+            {{ product.description }}
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <a href="{{ url('homepage') }}">Homepage</a>
+    </div>
+
+{% endblock %}
